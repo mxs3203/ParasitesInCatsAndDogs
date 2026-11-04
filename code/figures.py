@@ -2,7 +2,7 @@
 
 Main: 2 samples per year, age and sex; 3 trends by year; 4 region and settlement type; 5 co-occurrence;
 6 infection profiles in dogs; 7 age, and dogs compared with cats.
-Supplementary: S1 sample flow; S2 taxa recorded per year; S3 settlement type and coast; S4 prevalence by region;
+Supplementary: S1 taxa recorded per year; S2 sample flow; S3 settlement type and coast; S4 prevalence by region;
 S5 crude against adjusted co-occurrence; S6 number of profiles; S7 infection profiles in cats; S8 prevalence by age.
 """
 import json
@@ -101,7 +101,7 @@ def pct_labels(ax, bars, vals, fs=6.5):
                 ha="center", va="bottom", fontsize=fs)
 
 
-# Figure S1: data sources, harmonisation, sample flow
+# Figure S2: data sources, harmonisation, sample flow
 fig = plt.figure(figsize=(W, 2.6))
 ax = fig.add_subplot(111)
 ax.set_axis_off()
@@ -154,7 +154,7 @@ ax.annotate("", xy=(1, 0.5), xycoords=ac, xytext=(0.5, 0), textcoords=sr,
                             connectionstyle="angle,angleA=-90,angleB=180,rad=0"))
 ax.text(XR + 0.012, YE + 0.03, "linked by year and\nregistration number", ha="left", va="center", fontsize=6.8,
         linespacing=1.2)
-save(fig, "FigureS1_sample_flow")
+save(fig, "FigureS2_sample_flow")
 
 # Figure 2: samples per year, age, sex
 fig = plt.figure(figsize=(W, 2.3))
@@ -194,7 +194,7 @@ a3.set_ylim(0, 60)
 grid(a3)
 save(fig, "Figure2_dataset")
 
-# Figure S2: taxa recorded per year
+# Figure S1: taxa recorded per year
 fig = plt.figure(figsize=(W, 3.9))
 sub = GridSpec(1, 2, wspace=1.05, figure=fig)
 for k, sp in enumerate(("dog", "cat")):
@@ -226,7 +226,7 @@ fig.legend(hd, lb, handler_map={tuple: HandlerTuple(ndivide=None, pad=0.15)}, nc
            bbox_to_anchor=(0.5, 0.0), fontsize=7, handlelength=2.2, handletextpad=0.5, columnspacing=1.4,
 )
 fig.subplots_adjust(bottom=0.12)
-save(fig, "FigureS2_taxa_by_year")
+save(fig, "FigureS1_taxa_by_year")
 
 # Figure S3: location and environment
 ADM1 = gpd.read_file(f"{cf.EXTERNAL}/hrv_adm1.geojson")
