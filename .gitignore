@@ -8,3 +8,9 @@
 /CLAUDE.md
 /README.md
 /earlier_dog_only/
+/results/
+/OldCode/
+/.venv/
+/.idea/
+__pycache__/
+*.pyc
